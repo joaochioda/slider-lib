@@ -3,7 +3,7 @@
 This project is a template to create react components and publish them as libs
 
 
-## Commands
+## Commands to develop
 
 `npm i` install all dependencies
 
@@ -13,6 +13,15 @@ This project is a template to create react components and publish them as libs
 
 `npm publish` publish to package
 
+## Use lib
+
+`npm install @joaochioda/slider-lib@1.0.1`
+
+```
+import { Slider } from "@joaochioda/slider-lib"
+
+<Slider />
+```
 
 ## Final version
 
