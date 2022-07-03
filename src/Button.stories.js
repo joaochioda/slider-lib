@@ -10,11 +10,19 @@ export default {
 const Template = (args) => <Slider {...args} />;
 
 export const Default = Template.bind({});
-// Default.args = {
-//   label: 'My Button',
-// };
+Default.args = {
+  nameAnimal: "bear",
+  step: 30,
+};
 
 export const Color1 = Template.bind({});
 Color1.args = {
-  nameAnimal: "bear",
+  nameAnimal: "fox",
+  step: 50,
+};
+
+export const Color2 = Template.bind({});
+Color2.args = {
+  nameAnimal: "tiger",
+  step: 80,
 };

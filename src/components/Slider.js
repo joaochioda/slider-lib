@@ -121,7 +121,7 @@ const RangeWrapper = styled.div`
   }
 `;
 
-const Slider = ({ nameAnimal }) => {
+const Slider = ({ nameAnimal, getMinValue, step }) => {
   let color;
   if (nameAnimal === "bear") {
     color = "rgba(112, 171, 193, 0.8)";
@@ -135,8 +135,8 @@ const Slider = ({ nameAnimal }) => {
   const [rangeValueMin, setRangeValueMin] = useState(1);
 
   function handleRangeValueMin(value) {
-    if (value > 51) {
-      setRangeValueMin(51);
+    if (value > 100 - step) {
+      setRangeValueMin(100 - step);
       return;
     }
     setRangeValueMin(value);
@@ -147,11 +147,15 @@ const Slider = ({ nameAnimal }) => {
   }
 
   function handleRangeValueMax(value) {
-    if (value < 50) {
+    if (value < step + 1) {
       setRangeValueMin(1);
       return;
     }
-    setRangeValueMin(value - 49);
+    setRangeValueMin(value - step);
+  }
+
+  function getRightValue() {
+    return 27 + step * 2.78 + getLeftValue();
   }
 
   return (
@@ -161,9 +165,8 @@ const Slider = ({ nameAnimal }) => {
           <Number color={color} left={getLeftValue() + 25} top={-13}>
             {rangeValueMin}
           </Number>
-          <Number color={color} left={getLeftValue() + 162} top={-82}>
-            {" "}
-            {(rangeValueMin + 49).toString()}
+          <Number color={color} left={getRightValue()} top={-82}>
+            {(rangeValueMin + step).toString()}
           </Number>
           <input
             value={rangeValueMin}
@@ -176,7 +179,7 @@ const Slider = ({ nameAnimal }) => {
             onChange={(e) => handleRangeValueMin(parseInt(e.target.value))}
           />
           <input
-            value={(rangeValueMin + 49).toString()}
+            value={(rangeValueMin + step).toString()}
             id="range-line2"
             className="range"
             type="range"

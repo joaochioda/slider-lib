@@ -15,12 +15,12 @@ This project is a template to create react components and publish them as libs
 
 ## Use lib
 
-`npm install @joaochioda/slider-lib@1.0.1`
+`npm install @joaochioda/slider-lib@1.0.2`
 
 ```
 import { Slider } from "@joaochioda/slider-lib"
 
-<Slider />
+<Slider step={50}/>
 ```
 
 ## Final version
