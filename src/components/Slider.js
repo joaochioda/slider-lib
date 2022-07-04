@@ -136,9 +136,11 @@ const Slider = ({ nameAnimal, getMinValue, step }) => {
 
   function handleRangeValueMin(value) {
     if (value > 100 - step) {
+      getMinValue(100 - step);
       setRangeValueMin(100 - step);
       return;
     }
+    getMinValue(value);
     setRangeValueMin(value);
   }
 
